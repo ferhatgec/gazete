@@ -1,0 +1,243 @@
+FPage
+&
+|+Fegeya Komitesir Resm,ir Gazetesi~
+
+{
+Tarih: 1/06/21
+
+Ele alinacak konular:
+ * )Gretear (syf: 2)
+ * )FPaperr (syf: 3-4)
+ * )Eliter (syf: 5-6)
+
+Kose yazilari:
+ * )FlaScriptr neden öldü? (syf: 7)
+
+Ek:
+ * Sunucuda yapilan degisikliklerin siralanmasi.
+
+
+)Gretear nedir?
+1------------0
+Bir programlama dili. Ilk sureklemesi Rust ile
+yazildi. Rust’un ve C++‘in sozdiziminden
+bayagi bi’ etkilendigini soyleyebilirim.
+
+Asil amaci Kalem gibi bir ara-katman seklinde
+calistirilmasindan ziyade, birden fazla dile
+donusturulebilip, yorumlanabilmesidir.
+
+Sunucumuzdan birkac alintilar:
+============
+„hKalem’in sozdiziminden ve sorunlarindan
+nefret ettigim icin yazdim.r“ - @ferhatgec
+
+„gNaneli yesil cay tadinda bir dil.r“ - @ferhatgec
+============
+
+Kaynak:
+https://github.com/ferhatgec/gretea
+
+
+)FPaperr peki?
+1------------0
+En basit tabiriyle: yazi dosya formati.
+)FPaperr, digerlerine kiyasla daha hafif, daha
+hizli sekilde veriyi cikartabilir. ()C++17r sureklemesi).
+
+)FPaperr, Kedi; XML ya da JSON kullanmiyor.
+
+„E-Pub )XMLr kullaniyor, cikartabilmem icin
+libzip gibi bir sey lazim. Ustune )XMLr cop
+oldugu icin yavas olur“ - @ferhatgec
+
+Fegeya Felsefesi’ne diger Fegeya projeleri gibi
+tam-uyumlu, ek olarak termiospp
+sarmalayicisini da kullaniyor.
+
+Bazi isaretcileri asagiya biraktik:
+
+    START_MARKER        = 0x02
+    START_MARKER_2      = 0x46
+    START_MARKER_3      = 0x50
+    START_MARKER_4      = 0x61
+    START_MARKER_5      = 0x67
+    START_MARKER_6      = 0x65
+
+    START_OF_TEXT       = 0x26
+    END_OF_TEXT         = 0x15
+
+    STYLE_MARKER        = 0x1A
+    LIGHT_SET           = 0x30
+    BOLD_SET            = 0x31
+    DIM_SET             = 0x32
+    ITALIC_SET          = 0x33
+    UNDERLINED_SET      = 0x34
+    BLINK_SET           = 0x35
+    RAPID_BLINK_SET     = 0x36
+
+    COLOR_RESET         = 0x72
+
+    ALIGN_LEFT_SET      = 0x7B
+    ALIGN_CENTER_SET    = 0x7C
+    ALIGN_RIGHT_SET     = 0x7D
+    ALIGN_RESET         = 0x7E
+
+Kaynak/lar:
+https://github.com/ferhatgec/fpaper
+
+https://en.wikipedia.org/wiki/End-of-file
+
+)Eliter ne?
+1------------0
+Bildiginiz ya da bilmediginiz gibi, projelerin
+cogunlugunun eCMaker ya da eGNU Maker
+kullandigini cogumuz biliyoruz sanirim.
+
+)Eliter, digerlerinden farkli bir sozdizimine,
+tamamiyle sizin kontrolunuzde olan, e~bir betik
+diliymiscesine~r kullanilabilecek bir insa
+sistemidir aslinda.
+
+Tamamiyle hafiftir, ana sureklemesi Rust ile,
+ikinci sureklemesi ise C++ ile yazilmistir,
+yaziliyor.
+
+Ornek bir kod:
+
+    jsetr BIN_PATH      jasr "/usr/bin/"
+    jsetr COMPILER      jasr "g++"
+    jsetr COMPILER_PATH jasr "{BIN_PATH}{COMPILER}"
+
+    jsetr SOURCE_FILE   jasr         "example.cpp"
+    jsetr OUTPUT        jasr +outfiler "example"
+
+    +forr )signalr "start" [
+        +forr )existsr "{BIN_PATH}clang++" [
+            jsetr COMPILER jasr "clang++"
+        ]
+
+        +forr )argumentr "build" [
+            -user )execr "{COMPILER} {SOURCE_FILE} {OUTPUT}"
+
+            +forr )existsr $OUTPUT [
+                -printlnr "Build succeeded"
+            ]
+
+            -user )signalr "exit"
+        ]
+
+        -user )signalr "exit"
+    ]
+
+Kaynak/lar:
+https://github.com/ferhatgec/elite/blob/master/examples/cpp/hello_world/Elitefile
+
+https://github.com/ferhatgec/elite
+
+https://github.com/ferhatgec/elite.cpp
+
+https://en.wikipedia.org/wiki/Make_(software)
+
+https://en.wikipedia.org/wiki/CMake
+
+„Kose yazisi“: )FlaScriptr neden öldü?
+1------------0
+Guzel soru. )FlaScriptr bildiginiz ya da
+bilmediginiz uzere uzun zamandir
+guncellenmiyor, 0.3-beta-4‘de takili kaldi.
+Bunun birkac sebebi var, hemen siralayalim:
+
+1- Sozdiziminin asiri berbat olmasi.
+„
+ Kisaca:→ ←
+ Sozdizimi cogunluk tarafindan berbat olarak aniliyor, cunku
+ gercekten berbat. Bir betik dilinin bu kadar karmasik, bu
+ kadar kotu gorunmesinin bir sebebi olamaz.
+“
+
+2 - Agac, liste yapisinin olmamasi.
+„
+ Evet, dogru duydunuz!
+ )FlaScriptr’in .~biraz~r performanssiz calismasinin bir diger
+ sebebi de, direkt yorumlanmasidir. Dinamik bir dil
+ olmasinin getirdigi bir dezavantaj diyebiliriz buna.
+“
+
+3 - Tasarim hatalari.
+„
+ )FlaScriptr bircok tasarim hatalari bulundurur, asiri esnek bir
+ dil degildir, )FlaScriptr’i tekrar yazmak temizlemekten daha
+ kolaydir. Eglencesine ogrenilebilir, ornek projelere
+ bakilabilir. test/ klasorunde 60‘dan fazla ornek bulundurur.
+“
+
+0.3-beta-4‘un sozdiziminden bir ornek:
+    #readline ->
+	    +whiler[getline(+varr(test_file), +varr(null_))] -> {
+		    @+echor -> null_ <-
+		    +printr(+newliner)
+	    } <-
+    #readline <-
+
+    +mainr() -> +mainr {
+	    +varr(string) -> test.txt -> test_file <-
+	    +varr(string) ->     -> null_ <-
+
+	    statement[#readline]
+    } +mainr;
+
+Kaynak/lar:
+https://github.com/ferhatgec/flascript/blob/master/test/io/getline.fls
+
+https://github.com/ferhatgec/flascript
+
+https://github.com/ferhatgec/fetcher
+
+https://github.com/ferhatgec/flatcheya
+
+https://github.com/ferhatgec/fla-utils
+
+Sunucuda yapilan degisiklikler.
+(1/+05r/21‘den 1/+06r/21‘e)
+
+Yeni roller eklendi:
+ * @23 Nisan’da Koltuga Oturan Cocuk
+ * @Ahlakli, Zeki ve Cevik Sporcu Genc
+ * @<13 @<15 @<18 @18>
+ * @Enjoy I’m vaccinated
+ * @Atom Bombasi
+ * @Notron Bombasi
+ * @4 Yaprakli Yonca
+ * @Fegeya Yogurdu
+ * @Bakan birisi var mi acaba?
+ * @Maske
+ * @Hoparlor
+ * @Totem
+
+Isim degisikligi/kleri:
+ * `@Compiler ayaginiza geldi` → `@Derleyici ayaginiza geldi`
+ * `#gnulinux` → `#linux`
+
+Yeni kanallar:
+ * `#fpaper` kanali eklendi.
+ * `#every+frhing` kanali eklendi.
+ * `#exam` kanali eklendi.
+ * `#redd-i-gonderi` kanali eklendi.
+ * `#tadaa` kanali eklendi.
+ * `#football` ve `#baskelball` kanallari eklendi.
+
+
+
+Bu gazeteye erisebildiginize gore sunucuda
+olabilirsiniz. Sunucuda degilseniz daha cok bos
+yer var, gelin gelin.
+
+→ https://discord.gg/WrsFW4rzr9
+
+Gazetemiz icin elestiride mi bulunmak
+istiyorsunuz?
+`#feedback` kanalina fisildamayi unutmayin!
+
+=================================
+~
