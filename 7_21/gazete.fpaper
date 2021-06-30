@@ -1,0 +1,270 @@
+FPage
+&
+|+Fegeya Komitesir Resm,ir Gazetesi~
+
+{
+Tarih: 1/0g7r/21
+
+gEle alinacak konularr:
+ * )Totemr (syf: 2)
+ * )FPaperr (syf: 3-4)
+ * )GitHub CoPilotr (syf: 5-6)
+
+gKose yazi/larir:
+ * +Eliter ile )ilgincr seyler yapmak. (syf: 7)
+ * )Olimpiyatrlarin onemi (syf: 8)
+
+gEkr:
+ * Sunucuda yapilan degisikliklerin siralanmasi.
+ * Kucuk degisiklikler.
+
+
+)Totemr nedir?
+1------------0
+Acikcasi bildigimiz *lessr'in ,fegeyacar hali
+diyebiliriz. Kendisi asiri kullanisli, herhangi bir komut
+satiri argumanlarina sahip degil. Kolayca kullanilabilir.
+
+Bunun bir de Totemh.pyr sureklemesi var.
+hPython3r ile yazilmis, tamamiyle aynisi diyebilirim.
+
+Cogu projelerim gibi, bu projelerim de
+,fegeya felsefesir'ne tam uyumlu. Herhangi bir harici
+bagimliliga sahip degil. ()sadece standart kutuphaner)
+
+Sunucumuzdan birkac alintilar:
+============
+„hGelecekte daha fazla dile sureklemeyi de dusunuyorum.r“ - @ferhatgec
+
+„gBenim isimi goruyor. Bana yeter.r“ - @ferhatgec
+============
+
+Kaynak/lar:
+ https://github.com/ferhatgec/totem
+ https://github.com/ferhatgec/totem.py
+
+
+)FPaperr'i farkli dillerde de kullanabilir miyiz?
+1------------0
+Suanlik cevap: )Hayirr.
+Gelecekte olabilecek muhtemel cevap: fEvetr.
+
+Suanda sadece gC++r icin sureklemesi var )FPaperr'in.
+Ancak farkli diller icin de sureklemek acikcasi
+pek zor sayilmaz. Bagimliligi sadece standart kutuphane
+oldugu icin.
+
+„gRustr ve ,Pythonr icin gelecekte sureklemeyi
+ dusunuyorum.“ - @ferhatgec
+
+Su isaretciler )FPaperr'in tanimlanmasi icin cok ama
+cok onemli.
+
+Giris isaretcileri bize dosyanin ne oldugunu bilebilmemizi
+saglayabilen en guzel seylerden birisidir. Bunun icin bir
+kutuphanem var. (gTyfer)
+
+    .START_MARKERr        = e0x02r
+    .START_MARKER_2r      = e0x46r
+    .START_MARKER_3r      = e0x50r
+    .START_MARKER_4r      = e0x61r
+    .START_MARKER_5r      = e0x67r
+    .START_MARKER_6r      = e0x65r
+
+Yazinin basladigini da bildirmemiz gerekiyor gFPaperr'da.
+Diger turlu gFPaperr yazilarinizi isleme almaz.
+
+    .START_OF_TEXTr       = e0x26r
+
+Ayni sekilde, yazinin bitirildigini de gFPaperr'in bilmesi
+gerekiyor. Diger turlu tum girdiler isleme alinir.
+
+    .END_OF_TEXTr         = e0x15r
+
+Yazinizin seklini, semalini ayarlayabileceginiz,
+belirli isaretcilere de sahiptir gFPaperr.
+3Egri0, 1kalin0, ince, 4cizgili0 vs.
+
+    .STYLE_MARKERr        = e0x1Ar
+    .LIGHT_SETr           = e0x30r
+    .BOLD_SETr            = e0x31r
+    .DIM_SETr             = e0x32r
+    .ITALIC_SETr          = e0x33r
+    .UNDERLINED_SETr      = e0x34r
+    .BLINK_SETr           = e0x35r
+    .RAPID_BLINK_SETr     = e0x36r
+
+Gordugunuz butun renkler, oncelikle karakterin
+gASCIIr'sini alip kontrol ederek isleme aliniyor.
+Rengi sifirlamak istediginizde, kullanacaginiz bir
+isaretcidir.
+
+    .COLOR_RESETr         = e0x72r
+
+Yazimizin sekilden sekile girmesini istiyorsak,
+asagidaki isaretcilerden yardim alabiliriz.
+
+eNotr: Bu isaretciler render edecek uygulama
+uzerinden isleme alinmak zorundadirk(bknz: gFreudr)
+
+    .ALIGN_LEFT_SETr      = e0x7Br
+    .ALIGN_CENTER_SETr    = e0x7Cr
+    .ALIGN_RIGHT_SETr     = e0x7Dr
+    .ALIGN_RESETr         = e0x7Er
+
+
+Kaynak/lar:
+ https://github.com/ferhatgec/fpaper
+ https://github.com/ferhatgec/freud
+ https://github.com/ferhatgec/gazete
+ https://en.wikipedia.org/wiki/End-of-file
+
+)GitHub CoPilotr ne?
+1------------0
+Ilginc, guzel bir kod tamamlama uzantisi gibi bir sey.
+Kendisi kodun fonksiyonuna, yazilan koda, dile vs bakarak
+platformlardan makine ogrenmesi yardimiyla (dediklerine gore)
+belirli platformlardan kod getiriyor. Tabii ilk olarak
+kendi kod editorlerine getirmisler (bknz: gVSCoder).
+Belki gelecekte belirli +IDEr'lere de gelebilir (jki bence gelirr).
+
+Benim deginmek istedigim nokta bu degil. Biraz arastirma ile
+zaten az once dediklerime resmi sitesinden ulasabilirsiniz.
+
+Deginmek istedigim sey su: gNe kadar etikr?
+Kesin olmamakla birlikte, bu proje iGitHubr'in da
+gucunden faydalandigini dusunuyorum. iGitHubr'dan insanlarin
+kaynak kodlarina gore de olusturabilecegini dusunuyorum
+cunku o sekilde de lanse ediliyor sitesinde.
+
+Peki bu kodlarin izinsiz bir sekilde alinmasi etik mi o konuda
+yorumu size birakmak istiyorum, tabii diger turlu de olabilir.
+Bu benim tahminim.
+fStack overflowr'dan da alabiliyor olabilir.
+
+
+Kaynak/lar:
+ https://copilot.github.com/
+ https://github.blog/2021-06-29-introducing-github-copilot-ai-pair-programmer/
+
+„Kose yazisi“: )Eliter ile ilginc seyler yapmak mi?
+1------------0
+Elite bildiginiz ya da bilmediginize gore cok sade, kolayca
+ogrenilebilecek bir insa sistemi.
+Bilmiyorsaniz +6/21r gazetemizde anlatmistik. (+freud gazete 6 21r)
+
+Buraya kadar okumussaniz sunu soracaginizi tahmin ediyorum:
+„kPeki bunda nasil ilginc seyler yapabiliriz, bilmedigimiz bir seyler
+mi var?r“ - @okuyan-kisi
+
+Evet, onisleyiciler de birkac anahtar kelime var mesela:
+ - foutfiler : (suanlik c++ ve c icin) ciktinin ismini kolayca ayarlayin.
+ - fstdr     : (suanlik c++ ve c icin) dil standartini kolayca ayarlayin.
+ - flinkr    : (suanlik c++ ve c icin) projenize baglamaniz gereken bir seyler icin.
+ - fenvr     : cevre degiskenlerini kolayca alin.
+
+hepsini
+    jsetr x jasr foutfiler "..."
+             fstdr     "..."
+             flinkr    "..."
+             fenvr     "..."
+
+    sekliyle kullanabilirsiniz.
+
+„kPeki boolean yok nasil ben bir seyin olup olmadigini bilirim?r“ - @okuyan-kisi
+
+Tek yapmaniz gereken sey degisken olusturmak uzerine kurulu.
+
+    +forr )signalr "start" [
+      jsetr is_found jasr "no"
+      +forr )exists) "scrift" [
+        jsetr is_found jasr "yes"
+      ]
+
+      +ifr )eqr $is_found "yes" [
+        -printlnr "found"
+      ]
+
+      +ifr )uneqr $is_found "yes" [
+        -printlnr "not found"
+      ]
+    ]
+
+Kaynak/lar:
+ https://github.com/ferhatgec/elite
+ https://github.com/ferhatgec/elite.cpp
+ https://github.com/ferhatgec/scrift
+ https://github.com/ferhatgec/elite/blob/master/examples/cpp/hello_world/Elitefile
+
+„Kose yazisi“: )Olimpiyatrlarin onemi.
+1------------0
+eTurkiyer'de ve dunyadaki bircok ulkede de olan
+bilim olimpiyatlari sayesinde bircok sey ogrenebilir
+belki de (en azindan eTurkiyer icin) uluslararasinda
+madalya kazanip (en azindan eTurkiyer icin) 4sinavsiz
+universiteye girebilme0 imkaniniz var.
+
+eTurkiyer'de bunlari TUBITAK yapiyor. Bu sene de ayni
+sekilde yapacak. Basvurular 10 Haziran'a kadar
+uzatilmisti, 3 Temmuz'da da 1. asama sinavi yapilacak.
+
+Eger 1. asama sinavini gecerseniz (genelde ilk g450..550r)
+yaz kampinda 2. asama sinavi icin egitiliyorsunuz.
+
+2. asama sinavinda da galtinr, dgumusr, +bronzr alirsaniz hem
+odulleri var hem de takima girebilme imkaniniz var ve
+bu takima girerseniz uluslararasi alanda temsil edeceksiniz
+eulkenizir.
+
+Bilgisayar olimpiyatlarina diger olimpiyatlardan daha az kisi
+girdiginden dolayi 4bence sansiniz biraz daha fazla0 oldugunu
+dusunuyorum. Calismayi garantilerseniz ve eski 1. asama sinav-
+larina bakarsaniz bence gecebilme ihtimaliniz bir hayli yuksek.
+
+Bence denemenizde fayda var (g412. sinif degilseniz0r), bir sey
+kaybetmezsiniz.
+
+
+Ve... Son olarak sunucuda yapilan degisiklikler.
+(1/+06r/21‘den 1/+07r/21‘e)
+
+Yeni rol/ler eklendi:
+ * @Rekabetci Programlamaci
+ * @CLion
+ * @Olimpiyatci
+ * @Fegeya Resmi Gazetesi'ni Okuyan Kisi.
+ * @Fegeya Foundation
+
+Yeni kanal/lar:
+ * `#yildiz-tahtasi` kanali eklendi.
+ * `#flide` kanali eklendi.
+
+Kucuk degisiklikler:
+ * @Tosbik (carl-bot) artik daha guclu. Yeni liste eklendi.
+ * @Seref Madalyasi en uste cikarildi (roller arasinda)
+
+-------------------------------------
+Bu gazeteye erisebildiginize gore sunucuda
+olabilirsiniz. Sunucuda degilseniz daha cok bos
+yer var, gelin gelin.
+
+→ https://discord.gg/WrsFW4rzr9
+
+-------------------------------------
+Gazetemiz artik .GitHubr'da! Yildiz atmayi ihmal etmeyin!
+
+→ https://github.com/ferhatgec/gazete
+-------------------------------------
+
+Kose yazilarinda 3siz de0 olabilirsiniz!
+Istediginiz herhangi bir konu hakkinda kose yazisi/lari yazin,
+sunucumuzdan gonderin. Biz de fyayimlayalim0!
+
+-------------------------------------
+
+Gazetemiz icin elestiride mi bulunmak
+istiyorsunuz?
+`#hfeedbackr` kanalina fisildamayi unutmayin!
+
+=================================
+~
