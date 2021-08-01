@@ -1,0 +1,370 @@
+FPage
+&
+|+Fegeya Komitesir Resm,ir Gazetesi~
+
+{
+Tarih: 1/0g8r/21
+
+gEle alinacak konularr:
+ * )Gretear (syf: 2)
+ * )curl4cppr (syf: 3-4)
+ * )Gretea standart kutuphanesir (syf: 5-6)
+
+gKose yazi/larir:
+ * +fashtr karma kod (hash) algoritmasi. (syf: 7)
+ * +Eliter'ye ne eklendi yine? (syf: 8)
+ * +escafer de ne yahu!? (syf: 9)
+
+gEkr:
+ * Sunucuda yapilan degisikliklerin siralanmasi.
+ * Kucuk degisiklikler.
+
+
+)Gretear degisiklikleri?
+1------------0
+)Gretear'ya yeni, guzel mi guzel ozellikler eklendi.
+
+Bunlardan birisi acikcasi bana gore *compiler 
+anahtar kelimesidir. Ne katiyor gelin bakalim:
+
+Surekli yeni degiskenler olusturuyorsunuz diyelim,
+hepsine benzer verileri atamak sizin icin zor olmali.
+
+)Gretear'ya eklenen *compiler anahtar kelimesi ile 
+turlere farkli farkli evrensel varsayilan degerler
+atamaniz mumkun:
+
+  *compiler fdefaultr for gstringr {
+    "Her \'default\'u kullandigim zaman, okudugunuz dizeyi atayacak"
+  }
+
+  )varr test: gstringr = [[ fdefaultr ]]
+            ^^^^^^   ^^ ^^^^^^^ ^^
+              x      y     z     y
+
+x: *compiler'i kullanabilmemiz icin oncelikle tur tanimini 
+yapmamiz gerekir. 
+
+y: bildiniz )Gretear belirteclere sahip, boylece derleyici tarafindan
+belirlenmis ozellikleri degistirebiliyoruz.
+
+z: iste burasi belirtec ozelligidir, az once *compiler default 
+icin ~3derlemistik0~, belirtec bize bu tur icin uygun bir surekleme
+oldugunu belirtiyor, derleyici de bunlari evrensel *compiler listesinden
+cekerek yerlestiriyor.
+
+"1kEeee? Bu kadar mi yani?r0" dediginizi duyar gibiyim, bir diger ozellik ise
+,unsafer'ye yeni eklenen ozelliktir.
+
+)Gretear'da her degiskene bir veri, deger (ya da her ne diyorsaniz) atamaniz
+bir zorunluluktur, diger turlu hicbir sey atanmamis bir deger sorunlar 
+yaratabilir.
+
+Iste burada ,unsafer'ye yeni bir is dusuyor:
+
+Artik veri atamak zorunda degilsiniz (1ama atama yapmayip da sonradan 
+soylenmek yok0, 3tamam mi0?):
+
+  )varr test: fstringr = [[ ,unsafer ]]
+            ^^^^^^   ^^ ^^^^^^ ^^
+               x     y    q     y
+
+x: ustte var
+y: ustte var
+q: ,unsafer de bir diger belirtec ozelligidir, bununla derleyicinin
+kisitlamalarini kaldirabilirsiniz. Bu hC++r ve ,Cr baglayicilarinda kullanilabilir.
+Derleyici tarafindan kisitli olaylar projenin calistirilmasi esnasinda olabilecek
+bellek tasmasi gibi olaylari engellemek icin var.
+
+Sunucumuzdan birkac alintilar:
+============
+„hSuanlik sadece 'fdefaultr' var '*compiler' icin ama 
+gelecekte 1[[0 x 1]]0 seklinde olan tum ozellestirmeler icin destek sunacagim.
+Mesela '1gno_optimize0r' icin belirli bloklar optimize edilmeyebilir.r“ - @ferhatgec
+
+„gEk olarak bunlar (,cr yapilari) 'eimmutabler' ()degistirilemezr) olamazlar.r“ - @ferhatgec
+============
+
+Kaynak/lar:
+ https://github.com/ferhatgec/gretea
+ https://github.com/ferhatgec/bufsize.tea
+ https://github.com/ferhatgec/colorite
+
+)curl4cppr neyin nesi?
+1------------0
+)curl4cppr, +libcURLr'nin hmodernr )C++r'a sarmalanmis bir halidir
+diyebilirim. Tek baslik, fRAIIr'ye saygili bir kutuphane.
+
+Bunu kullanarak bir proje daha yaptim, normalde '.curlr' ve 'jwgetr'
+kullaniliyor genel olarak internetten bir veri cekmek icin vs.
+
+Fegeya Felsefesine tam anlamiyla saygili bir sekilde yapiyorum
+tabii ki de. 
+
+Gelecekte farkli farkli dillere de sarmalamayi planliyorum diyebilirim,
+ozelikle )Gretear. 
+
+Kaynak/lar:
+ https://github.com/ferhatgec/gretea
+ https://github.com/ferhatgec/curl4cpp
+
+)Gretea standart kutuphanesirne neler eklenmis?
+1------------0
+Bayagi yeni seyler ekledik:
+
+ * )c*o+l,o-r/iezfegd0 kutuphanesi gibi bir modul
+ * gunluk (log) modulu.
+ * matematiksel ifade ayristirici ve olusturucu bir modul.
+ * ucbirim genisligini ve uzunlugunu alabilmeniz icin bir modul.
+ * cok ama cok basit bir dil yorumlayicisi (standart kutuphanede degil) 
+ * kacis dizisi olusturucu ve ayristirici bir modul.
+
+Colorite:
+ * colorite, su renk turlerine sahip:
+    Reset
+    (Black0
+    )Red0
+    *Green0
+    +Yellow0
+    ,Blue0
+    -Magenta0
+    .Cyan0
+    /White0
+    Default
+
+    kLightr (usttekiler gibi)
+    Background (usttekiler gibi)
+    BackgroundLight (usttekiler gibi)
+   
+ * colorite, su yazi stillerine sahip:
+    Light     
+    1Boldr      
+    2Dimr       
+    3Italicr    
+    4Underlinedr
+    5Blinkr     
+    6RapidBlinkr (sadece hWindowsr icin)
+    Reverse
+    Hidden
+
+ standart kutuphanedeki yeri:
+  -> tea.green.color
+ 
+ fonksiyon tanimi:
+  -> +fnr color#print(__data: gstringr, color: __Colors__, type: __Color_Types__)
+
+Logre:
+ * logre, su gunluk turlerine sahip:
+    Info
+    Warning
+    )Errorr
+    Help
+
+ standart kutuphanedeki yeri:
+  -> tea.green.log
+
+ fonksiyon tanimi:
+  -> +fnr log#print<'Args>(__type: __Log_Types__, log_datas: Args)
+                 ^^^^^^^
+                    v
+  v: genisletilebilir fonksiyon.
+
+Grexpr:
+ * grexpr, su operatorlere sahip:
+    Plus
+    Minus
+    Multi
+    Div
+    Undefined (sayi olabilir)
+
+ standart kutuphanedeki yeri:
+  -> tea.green.expr
+
+ fonksiyon tanimi:
+  -> +fnr expr#eval(data: gstringr) = eint32r
+
+Bufsize:
+ * bufsize, su yapiya sahip:
+    fstructr BufSize {
+      emutr columns : euint32r [[ fdefaultr = 0 ]]
+      emutr rows    : euint32r [[ fdefaultr = 0 ]]
+    }
+
+ standart kutuphanedeki yeri:
+  -> tea.green.bufsize
+
+ fonksiyon tanimi:
+  -> +fnr bufsize#init() = eBufSizer
+  -> *compiler fdefaultr for eBufSizer
+
+Ceylon:
+ * ceylon, su anahtar kelimelere sahip:
+    Put
+    Val
+    Undef (tanimlanmamis, her sey olabilir)
+
+ standart kutuphanede degil.
+
+ fonksiyon tanimi:
+  -> ana fonksiyonun icinde
+  -> *compiler fdefaultr for gstringr
+
+Escafe:
+ standart kutuphanedeki yeri:
+  -> tea.green.escape
+
+ fonksiyon tanimi:
+  -> +fnr escape#run(data: gstringr) = gstringr
+
+Bunlar gercekten kullanisli, normalde de cok
+kullandigim, farkli diller icin de surekledigim
+projeler. )Gretear kullanirken bunlari da kullanmayi
+ihmal etmeyin. 3Olabildigince0 *optimizelerr.
+
+Kaynak/lar:
+ https://github.com/ferhatgec/gretea
+ https://github.com/ferhatgec/bufsize.tea
+ https://github.com/ferhatgec/escafe.tea
+ https://github.com/ferhatgec/colorite
+ https://github.com/ferhatgec/logre
+ https://github.com/ferhatgec/ceylon
+ https://github.com/ferhatgec/grexpr
+
+
+„Kose yazisi“: +fashtr'in algoritmasini aciklayalim:
+1------------0
++fashtr asiri basit, 4 bloktan olusan karma kod olusturucu
+bir algoritma. Ben Python ve hC++r icin surekledim.
+
+Sifrelenebilir, geri dondurulebilir. 3Bu yuzden sifreleme algoritmasi
+degildir.0
+
+Algoritmasini pseudo kod ile aciklayacagim. 1Anlayacaginizi umuyorum0.
+
+bloklar sunlar:
+  10x20
+  10x50
+  10x7d50
+  10x7e50
+
+ pseudo kodu burada:
+  rounds := [
+    10x20
+    10x50
+    10x7d50
+    10x7e50
+  ]
+
+  +functionr h(data: gstringr) := gstringr :=
+    table := euintr[]
+    result := gstringr("")
+
+    ,forr round : rounds :=
+      ,forr character : data :=
+        table += (character << 2) ^ round
+
+    ,forr argument : table := 
+      result += hex(argument >> 2).last_character()
+    
+    ,ifr result.length() > 32 := 
+      result = result[0..32]
+    ielser :=
+      h(result)
+
+    result
+
+Simdi bu bana bir dize verir, <= 32 karaktere sahip.
+
+"Peki bunu nasil gercekten bir karma koda cevirebilirim" diyorsaniz,
+
+pseudo kodu su:
+  +functionr hb(data: gstringr) := eulongr := 
+    string_to_long(h(data), base(16))
+
+Gelecekte )Gretear icin de yazmayi planliyorum.
+
+Kaynak/lar:
+ https://github.com/ferhatgec/fasht
+ https://github.com/ferhatgec/fasht.py
+
+„Kose yazisi“: +Eliter'ye ne eklendi yine?
+1------------0
++Eliter'ye uzun zamandir yapacagimi soyledigim ancak usendigimden 
+yapmadigim cikti baskilama ozelligini ekledim.
+
+Eger siz bir sistem cagrisi yuruyorsaniz ve ciktisini bastirmak 
+istemiyorsaniz kullanacaginiz tek anahtar kelime: 'gsuppressr'.
+
+Ornek:
+  eprintlnr gsuppressr "kstdout baskilandi, bunu sadece burada gorebilirsiniz.r"
+
+  euser gexecr gsuppressr "kecho Sistem cagrisi baskilandi bile, sadece burada gorebilirsiniz.r"
+
+
+„Kose yazisi“: +escafer de ne yahu!?
++Escafer, 330 farkli dile surekledigim bir 1kacis dizesi ayristiricisi0 ve 
+verilen dizeye gore tekrardan onu olusturabilen bir 1olusturucudur0.
+
+Hani sizin kullandiginiz ()\rr, )\nr, )\br) falan var ya. Onlar iste.
+
+Ek olarak e\wr dizesini de destekliyor. Bunu )Gretear'da 3gcok ama cok 
+kullaniyoruzr0.
+
+)\wr = whitespace (bosluk)
+
+Ornek girdi:
+  1escafe\\wis\\winteresting\\n\\x1b[0;33mtest\\x1b[0m\\n\\\\0
+
+Ornek cikti:
+  escafe is interesting
+  +testr
+  \
+
+Ve... Son olarak sunucuda yapilan degisiklikler.
+(1/+07r/21‘den 1/+08r/21‘e)
+
+Yeni rol/ler eklendi:
+ * @'\n' -> ';'
+ * @';' -> '\n'
+ * @Fegeya Sanal Makinesine Giren Kisi
+ * @Naneli Yesil Cay
+ * @Nanesiz Siyah Cay
+ * @xsey, xmisiniz, xde, herkez, ptyhon, cplus, hoşgeldiniz
+ * @Tuvalette Gazete Okuyan Kisi
+ * @ACT
+ * @Hmm...
+ * @:ggechr:
+ * @Lotzertfuil zum Fegeya
+ * @Surekli 'gSurekleyenr' Surekleyici
+
+Yeni kanal/lar:
+ * `#curl4hcppr` kanali eklendi.
+
+Kucuk degisiklikler:
+ * hDiscordr'un yeni ozelliklerini aktiflestirdik.
+
+-------------------------------------
+Bu gazeteye erisebildiginize gore sunucuda
+olabilirsiniz. Sunucuda degilseniz daha cok bos
+yer var, gelin gelin.
+
+→ https://discord.gg/WrsFW4rzr9
+
+-------------------------------------
+Gazetemiz artik .GitHubr'da! Yildiz atmayi ihmal etmeyin!
+
+→ https://github.com/ferhatgec/gazete
+-------------------------------------
+
+Kose yazilarinda 3siz de0 olabilirsiniz!
+Istediginiz herhangi bir konu hakkinda kose yazisi/lari yazin,
+sunucumuzdan gonderin. Biz de fyayimlayalim0!
+
+-------------------------------------
+
+Gazetemiz icin elestiride mi bulunmak
+istiyorsunuz?
+`#hfeedbackr` kanalina fisildamayi unutmayin!
+
+=================================
+~
