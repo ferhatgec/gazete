@@ -1,0 +1,308 @@
+FPage
+&
+|+Fegeya Komitesir Resm,ir Gazetesi~
+
+{
+Tarih: 1/0g9r/21
+
+gEle alinacak konularr:
+ * )ffetchr (syf: 2)
+ * )climager (syf: 3-4)
+ * )fashtsumr (syf: 5-6)
+ * )typecoder (syf: 6-7)
+
+gKose yazi/larir:
+ * +Jetbrains IDEAr tabanli tgolar (ide) icin yeni versiyon. (syf: 8)
+ * +gechprngr de ne yahu!? (syf: 9)
+
+gEkr:
+ * Sunucuda yapilan degisikliklerin siralanmasi.
+ * Kucuk degisiklikler.
+
+
+)ffetchr ne, ha?
+1------------0
+)ffetchr, )curl4cppr kullanilarak yazilmis veri cekmek icin
+kullanilabilecek bir arac.
+
+biz bununla )ffetchr'in {eliter betigini ekrana yansitabiliriz:
+  https://raw.githubusercontent.com/ferhatgec/ffetch/master/Elitefile
+
+  )ffetchr {baglanti}
+
+onun disinda, ekrana yansitmak yerine dosyaya yazdirabiliriz:
+  )ffetchr to={dosya} {baglanti}
+
+acikcasi asiri rahat, bayagi sade bir arac. bu kadar.
+
+"curl4cpp kullanarak benzer seyi nasil yapabilirim?!" diyorsaniz, ornek kullanim:
+   )#includer <iostream>
+   )#includer <string>
+   )#includer "gcurl4.hppr"
+
+   eintr main() {
+       {curl4::CURL4r init = {curl4::easy::initr();
+
+       {
+           gstd::stringr val;
+
+           init.setopt(CURLOPT_URL, "https://raw.githubusercontent.com/ferhatgec/bufsize/master/example.cpp");
+           init.setopt(CURLOPT_WRITEFUNCTION, curl4::easy::writefunc);
+           init.setopt(CURLOPT_WRITEDATA, &val);
+
+           CURLcode res = curl4::easy::perform(init);
+
+           estd::coutr << val << '\n';
+       }
+
+       )returnr 0;
+   }
+
+Sunucumuzdan birkac alintilar:
+============
+„hveri cekmek icin wget ya da direkt curl yerine bununla bir seyler yazabilirimr“ - @ferhatgec
+„hbunun icin basit bir arac yazdim. ffetch, asiri basit. sadece dosyaya yazdirabilir,
+ciktisini alabilirsiniz (simdilik)r“ - @ferhatgec
+============
+
+Kaynak/lar:
+ https://github.com/ferhatgec/ffetch
+ https://github.com/ferhatgec/curl4cpp
+
+)climager neyin nesi?
+1------------0
+)climager, genel olarak ucbirimde kullanabilmem icin gelistirdigim bir resim formati.
+bayagi kucuk boyutlara sahip (ornek: 8x8..64x64)
+
+ornek dosya formati da su sekilde:
+  CLImage0&0
+
+  ,#0000FFr, ,#0000FFr, ,#0000FFr, ,#0000FFr, ,#0000FFr, ,#0000FFr, ,#0000FFr, ,#0000FFr,
+  ,#0000FFr, ,#0000FFr, ,#0000FFr, ,#0000FFr, ,#0000FFr, ,#0000FFr, ,#0000FFr, ,#0000FFr,
+  ,#0000FFr, ,#0000FFr, +#c0a80br, ,#0000FFr, +#c0a80br, ,#0000FFr, ,#0000FFr, ,#0000FFr,
+  ,#0000FFr, ,#0000FFr, ,#0000FFr, ,#0000FFr, ,#0000FFr, ,#0000FFr, ,#0000FFr, ,#0000FFr,
+  ,#0000FFr, /#6868c4r, ,#0000FFr, ,#0000FFr, ,#0000FFr, ,#0000FFr, /#6868c4r, ,#0000FFr,
+  ,#0000FFr, /#6868c4r, ,#0000FFr, ,#0000FFr, ,#0000FFr, ,#0000FFr, /#6868c4r, ,#0000FFr,
+  ,#0000FFr, /#6868c4r, /#6868c4r, /#6868c4r, /#6868c4r, /#6868c4r, /#6868c4r, ,#0000FFr,
+  ,#0000FFr, ,#0000FFr, ,#0000FFr, ,#0000FFr, ,#0000FFr, ,#0000FFr, ,#0000FFr, ,#0000FFr,
+
+)climager direkt ()rr, *gr, +br) tarzinda renkleri cikartmak yerine,
+onaltılık tabandan ()rr, *gr, +br) degerlerini cikartir.
+
+isaretcileyicileri de soyle:
+  SOF = 0x43,
+  SOF2 = 0x4C,
+  SOF3 = 0x49,
+  SOF4 = 0x6D,
+  SOF5 = 0x61,
+  SOF6 = 0x67,
+  SOF7 = 0x65,
+
+  SOW = 0x02,
+  SOH = 0x26,
+
+  Pixel8 = 0x30
+  Pixel16 = 0x31
+  Pixel32 = 0x32
+  Pixel64 = 0x33
+
+  ColorStart = 0x23
+  Continue = 0x2C
+
+2 ustte gordugunuz )climager betigini simdi calistiralim:
+  )climager {dosya}
+
+  aha da ciktisi:
+
+  ░░░░░░░░░░░░░░░░
+  ░░░░░░░░░░░░░░░░
+  ░░░░░░░░░░░░░░░░
+  ░░░░░░░░░░░░░░░░
+  ░░░░░░░░░░░░░░░░
+  ░░░░░░░░░░░░░░░░
+  ░░░░░░░░░░░░░░░░
+  ░░░░░░░░░░░░░░░░
+
+  (hicbir sey goremiyor musunuz?
+  tikla: https://github.com/ferhatgec/climage/blob/master/resources/window.png?raw=true)
+
+  "o kabugun ismi ne?" diyorsaniz, scrift
+  ama biraz daha ozellestirilmis bir sekilde kullaniyorum, o da dotscrift
+  (rounded-arrow temasi)
+
+bunun python icin de bir sureklemesi var, adi ustunde: climage.py
+
+gech (fegeya) felsefesine de tam anlamiyla saygili :)
+
+Kaynak/lar:
+ https://github.com/ferhatgec/climage
+ https://github.com/ferhatgec/climage.py
+ https://github.com/ferhatgec/scrift
+ https://github.com/ferhatgec/dotscrift
+
++fashtsumr ne? tamam fasht'i onceki yayimdan biliyoruz.
+1------------0
++fashtsumr = +fashtr + 1dosyadan cekilmis veri0
+
+kisaca bu kadar ama 3birden fazla komut satiri argumanlarini da0 destekliyor.
+
+ancak bayagi yavas, "neden?" diyorsaniz eger:
+ * herhangi bir veri sikistirma algoritmasi kullanmadik, deneysel o yuzden.
+ * yok.
+
+Kaynak/lar:
+ https://github.com/ferhatgec/fasht
+ https://github.com/ferhatgec/fashtsum
+
+.typecoder ne?
+1------------0
+su ustunden biraz zaman gecen +githubr'in benioku dosyalarini @kullaniciadi seklinde
+acilan depolar icin profil ana sayfasinda yansittigini biliyoruz. yok neymis
+efendim "x, y, z konusunda bilgiliyim. w, q bilgim var" demenin bayagi yer
+kaplayacagini ve gereksiz gorunecegini, insanlarin bunlari okumadigini saniyorum ki
+cogumuz biliyoruzdur.
+
+.typecoder ise kendinizi yansitmanin basit bir hali, su kod ile bir kisilik kendini
+yansitmis olabilir:
+  $%///*++;%////*++;///++++;///*++;///*+++;-%////*;$@/*+;+++;///;@?-++;%/*++;?
+
+hemen sunu diyebilirsiniz: "burada gorunene gore noktali virgul bir seyleri degistiriyor".
+ - evet dogru!
+
+oncelikle ciktisini alalim:
+  Languages:
+    FlaScript
+    Gretea
+    C
+    C++
+    C++/CLI
+    Python
+
+  Branches:
+    Computer Science
+    Programming languages
+    Programming languages and compilers
+
+  Operating Systems:
+    Pop!_OS
+    prismBSD
+
+bundan sonra hemen sunu diyebilirsiniz: "$, @ ve ? kategoriler gibime geliyor"
+ - evet dogru!
+
+tanimlanmis karakterler sunlar:
+  Lang = '$'
+  Branch = '@'
+  OS = '?'
+
+  Push = '+'
+  Push5 = '*'
+  Push10 = '/'
+  Push50 = '%'
+  Push100 = '-'
+  Print = ';'
+
+3 farkli kategori icin 3 farkli vektor var elimizde,
+bu vektorler ustteki 'diller', 'dallar' ve 'isletim sistemleri' kategorileriyle alakali
+verileri icerir.
+
+biz her push5..push100 karakterlerini kullanirsak, elimizdeki dizin ona bagli olarak artar,
+noktali virgul kullanarak kendimize ait 3 vektorden birine atariz ve o dizini sifirlariz.
+
+3 kategori icin 3 farkli vector var.
+
+en sonunda ise biz bunu yazdirarak kendimizi tanitabiliriz.
+
+
+Sunucumuzdan birkac alintilar:
+============
+„hkendinizi cs alaninda az kodla fazla sekilde tanitabilmenize yarayan,
+bakinca kimsenin anlayamayacagi ama mantiginin basit oldu bir yorumlayicir“ - @ferhatgec
+============
+
+bunun da c++, rust ve python sureklemeleri var.
+
+cogu proje gibi bu da gech (fegeya) felsefesine tam uyumlu.
+
+Kaynak/lar:
+  https://github.com/ferhatgec/typecode
+  https://github.com/ferhatgec/typecode.py
+  https://github.com/ferhatgec/typecoders
+
+„Kose yazisi“: +Jetbrains IDEAr tabanli tgolar (ide) icin yeni versiyon geldi.
+1------------0
+Normalde gazeteye eklemeyi pek planlamiyordum ama ekleyeyim dedim, 2. ceyrek icin yeni versiyon olan
+2021.120.1 yayinlandi.
+
+mesela gCLionr icin neler eklenmis:
+  - oncelikle bunun bir hata giderme surumu oldugunu soylemisler.
+  (https://blog.jetbrains.com/clion/2021/08/clion-2021-2-1-bug-fix-update/)
+
+  - clangformat icin editor donmasi sorununu cozmusler.
+  (https://youtrack.jetbrains.com/issue/CPP-25091)
+
+  - yaygin fonksiyon parametreleri donusturme artik kapatilmis,
+  ayarlardan etkinlestirebiliyormussunuz. suradan:
+  (k1Preferences/Settings | Editor | General | Code Folding | Fold by default | C | Template parameters0r)
+
+  - yeni ozellestirme secenekleri eklemisler:
+  (k1Preferences/Settings | Editor | Code Style | C/C++ | Spaces | Before/After ‘for’ colon/semicolon0r)
+
+  tum notlar burada:
+  (https://confluence.jetbrains.com/pages/viewpage.action?pageId=224166222)
+
+  - 2021.3 hedefleri de burada imis:
+  (https://blog.jetbrains.com/clion/2021/08/roadmap-clion-2021-3/)
+
+digerleri icin de guncelleme gelmis, mesela PyCharm icin. ilgisi olanlar icin link burada:
+  (https://blog.jetbrains.com/pycharm/2021/08/2021-2-1/)
+
+tum guncellemelere ulasabileceginiz yegane blog:
+  (https://blog.jetbrains.com/category/news/)
+
+Ve... Son olarak sunucuda yapilan degisiklikler.
+(1/+08r/21‘den 1/+09r/21‘e)
+
+Yeni rol/ler eklendi:
+ * @Gech ruhu
+ * @Yasayan Olu
+ * @Steam
+ * @donut.,cr
+
+Yeni kanal/lar:
+ * `#typecode` kanali eklendi.
+ * `#climage` kanali eklendi (`#gemini` -> `#climage`)
+ * `#3BAGIRr` KANALI EKLENDI.
+
+Kucuk degisiklikler:
+ * hDiscordr'un yeni degisikliklerini ekledik.
+ * Belirli roller 3ilginc Turkceyer cevirildi:
+   (cplusplus, cartiarti)
+   (csharp, ckeskin gibi gibi)
+ * Tum kanallar 3ilginc Turkceyer cevirildi ve biraz degistirildi.
+
+-------------------------------------
+Bu gazeteye erisebildiginize gore sunucuda
+olabilirsiniz. Sunucuda degilseniz daha cok bos
+yer var, gelin gelin.
+
+→ https://discord.gg/WrsFW4rzr9
+
+-------------------------------------
+Gazetemiz artik .GitHubr'da! Yildiz atmayi ihmal etmeyin!
+
+→ https://github.com/ferhatgec/gazete
+-------------------------------------
+
+Kose yazilarinda 3siz de0 olabilirsiniz!
+Istediginiz herhangi bir konu hakkinda kose yazisi/lari yazin,
+sunucumuzdan gonderin. Biz de fyayimlayalim0!
+
+-------------------------------------
+
+Gazetemiz icin elestiride mi bulunmak
+istiyorsunuz?
+`#hfeedbackr` kanalina fisildamayi unutmayin!
+
+=================================
+~
